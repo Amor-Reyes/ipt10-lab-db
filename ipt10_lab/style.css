@@ -134,4 +134,9 @@ a:hover { color: var(--burgundy-dark); }
     color: var(--muted);
     padding: 1.1rem 0;
     text-align: center;
+
+.site-card-header {
+    background: var(--burgundy);
+    border-bottom: 3px solid var(--gold);
+}
 }
