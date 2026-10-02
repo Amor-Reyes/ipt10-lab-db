@@ -1,0 +1,8 @@
+*.log
+.env
+config.local.php
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+docs/
