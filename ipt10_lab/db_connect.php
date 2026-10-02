@@ -20,6 +20,7 @@ try {
     // Set the character set to utf8mb4 for full UTF-8 support (including special characters and emojis).
     $conn->set_charset('utf8mb4');
 } catch (mysqli_sql_exception $e) {
+    // Log the actual technical error to the server error log for debugging
     error_log('DB connect failed: ' . $e->getMessage());
     die('Database unavailable');
 }
