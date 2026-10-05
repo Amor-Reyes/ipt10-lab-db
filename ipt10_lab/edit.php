@@ -5,7 +5,6 @@ declare(strict_types=1);
 require_once __DIR__ . '/db_connect.php';
 require_once __DIR__ . '/header.php';
 
-// TODO(15): Read and trim the student ID from GET or POST
 $id = trim($_POST['id'] ?? $_GET['id'] ?? '');
 
 $first_name     = '';
@@ -38,8 +37,6 @@ if ($id === '') {
         $student_number = trim($_POST['student_number'] ?? '');
         $program        = trim($_POST['program'] ?? '');
         $enrolment_date = trim($_POST['enrolment_date'] ?? '');
-
-        // TODO(16): Exact same validation rules as create.php
 
         // first_name: required, 2-100 chars, letters and spaces only
         $fnLen = mb_strlen($first_name);
@@ -170,7 +167,6 @@ if ($id === '') {
                 );
                 mysqli_stmt_execute($stmtUpdate);
 
-                // TODO(17): Check affected_rows after UPDATE.
                 // In MySQL, affected_rows returning 0 has two distinct meanings:
                 // 1) The row was found, but the submitted form values were completely identical to
                 //    what was already stored in the database, so MySQL made zero modifications.

@@ -1,7 +1,6 @@
 <?php
 declare(strict_types=1);
 
-// TODO(7): Require database connection and header template
 require_once __DIR__ . '/db_connect.php';
 require_once __DIR__ . '/header.php';
 
@@ -44,7 +43,7 @@ if ($id === '') {
     </div>
 <?php else: ?>
     <?php
-    // TODO(8): Build full name, including middle name only if present
+
     $fullName = $student['first_name'];
     if (!empty($student['middle_name'])) {
         $fullName .= ' ' . $student['middle_name'];
@@ -106,7 +105,7 @@ if ($id === '') {
 <?php endif; ?>
 
 <?php
-// TODO(9): Close the database connection and load the footer
+
 mysqli_close($conn);
 require_once __DIR__ . '/footer.php';
 ?>

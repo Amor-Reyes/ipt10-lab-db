@@ -12,7 +12,7 @@ $id             = '';
 $isPost         = (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST');
 
 if ($isPost) {
-    // TODO(20): Never delete on GET. On POST, run prepared DELETE and verify affected_rows === 1
+
     $id = trim($_POST['id'] ?? '');
 
     if ($id === '') {
@@ -37,7 +37,7 @@ if ($isPost) {
         }
     }
 } else {
-    // TODO(18): On GET, read and trim id, then verify student exists via prepared SELECT
+
     $id = trim($_GET['id'] ?? '');
 
     if ($id === '') {
@@ -83,7 +83,7 @@ if ($isPost) {
         </div>
     </div>
 <?php else: ?>
-   <!-- TODO(20): Confirmation card naming the student with POST form and Cancel link -->
+
     <div class="card">
         <div class="card-header site-card-header"></div>
             <h4 class="mb-0 text-white">Confirm Deletion</h4>

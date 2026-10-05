@@ -5,7 +5,6 @@ declare(strict_types=1);
 require_once __DIR__ . '/db_connect.php';
 require_once __DIR__ . '/header.php';
 
-// TODO(10): Initialize form input variables and error array
 $first_name     = '';
 $middle_name    = '';
 $last_name      = '';
@@ -30,8 +29,6 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST') {
     $student_number = trim($_POST['student_number'] ?? '');
     $program        = trim($_POST['program'] ?? '');
     $enrolment_date = trim($_POST['enrolment_date'] ?? '');
-
-    // TODO(11): Server-side validation
 
     // first_name: required, 2-100 chars, letters and spaces only
     $fnLen = mb_strlen($first_name);
@@ -126,7 +123,6 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST') {
         }
     }
 
-    // TODO(12) & TODO(13): If no errors, prepare and execute INSERT statement
     if (empty($errors)) {
         // Store NULL in database when middle name is left empty
         $middle_name_param = ($middle_name === '') ? null : $middle_name;
@@ -205,7 +201,6 @@ if (($_SERVER['REQUEST_METHOD'] ?? '') === 'POST') {
     </div>
 <?php endif; ?>
 
-<!-- TODO(14): Form preserving sticky values and displaying field-level errors -->
 <div class="card">
     <div class="card-body p-4">
         <form method="POST" action="create.php" novalidate>

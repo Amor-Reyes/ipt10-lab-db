@@ -5,7 +5,6 @@ declare(strict_types=1);
 require_once __DIR__ . '/db_connect.php';
 require_once __DIR__ . '/header.php';
 
-// TODO(4): static SELECT, newest enrolments first, ties broken by id.
 // No user input here, so no placeholders are needed.
 $sql = "SELECT id, first_name, last_name, email, enrolment_date
         FROM students
@@ -33,7 +32,7 @@ $result = mysqli_query($conn, $sql);
                 </thead>
                 <tbody>
                     <?php
-                    // TODO(5): mysqli_fetch_assoc() returns one row at a time
+
                     // as ['column' => value], and false when there are no rows left.
                     if (mysqli_num_rows($result) > 0):
                         while ($row = mysqli_fetch_assoc($result)):
@@ -64,7 +63,7 @@ $result = mysqli_query($conn, $sql);
 </div>
 
 <?php
-// TODO(6): free the result first, then close the connection
+
 mysqli_free_result($result);
 mysqli_close($conn);
 
